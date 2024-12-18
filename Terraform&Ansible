@@ -97,3 +97,5 @@ Each playbook is a collection of one or more plays. Playbooks are structured by 
  
 The function of the play is to map a set of instructions which is defined against a particular host.
 
+Ansible playbook for start/state/status of servers - https://devcodef1.com/news/1429420/ansible-playbook-for-service-management
+
