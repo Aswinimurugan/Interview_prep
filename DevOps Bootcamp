@@ -1,0 +1,7 @@
+Developer --> Develop a code for your application in your personal system, text format of code will not help us to run it as application by end user
+   |
+Build --> convert the code into executable format (Maven, gradle,...)
+   |
+Deploy --> Deploy the build into target server to make it available for end user.
+
+Git - helps developers to work on the same code at the same time and collabrote efficiently without conflicts
