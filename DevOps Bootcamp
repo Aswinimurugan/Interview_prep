@@ -2,6 +2,59 @@ Developer --> Develop a code for your application in your personal system, text 
    |
 Build --> convert the code into executable format (Maven, gradle,...)
    |
+ Test --> test the code if there is any violation or vulnerabilities
+   |
 Deploy --> Deploy the build into target server to make it available for end user.
 
 Git - helps developers to work on the same code at the same time and collabrote efficiently without conflicts
+Teraform is used to provision the infrastructer and ansile is used to configure the tools/software after provisioning the infrastructure.
+
+Devops Cycle
+
+Code --> Build-->test-->release-->deploy-->operate-->monitor-->feedback.
+
+Linux:
+Shell type;
+1) Bourn Shell (sh shell)
+2) C shell (csh or tcsh)
+3) Z shell (zsh)
+4) Bourn again shell (Bash Shell)
+> echo $SHELL --> it will give you the which shell you are currently in
+> echo Hi --> print screen
+> ls --> list the content of the dir
+> mkdir aaa --> create directory
+> cd aaa --> change the path
+> pwd -> present working directory
+> cd aaa, mkdir bbb -> run multiple command use semicolon
+> rm -r <dir> --> remove the directory
+> touch new_file.txt --> create new file
+>> cat > new_file -->  add content to the file
+> cat new_file --> view the content 
+> cp <source> <destiniation> --> copy the file
+> mv <source> < destination> --> move(rename) the file
+VI Editor:
+Command mode --> press esc to get out of insert mode.
+Delete -- X or dd
+copy&paste -- yy&p
+scroll up/down -- ctrl+u/ctrl+d
+save -- :w
+quit -- :q
+save and quit -- :wq
+find -- /of-it will highlight all "of", press n --> to see one by one
+Insert Mode --> press i
+User Commands:
+>whoami -- to show the current user
+>id --> gives more info about user (id, group..)
+> su <username> -- switch one user to another
+> shh <username>@<ipaddress> -- access another server from your system 
+> sudo ls /root --> should use sudo prefix to access root dir files, otherwise,you will get permission denied error.
+> curl <url> -o --> download files from url
+> wget <url> -o aaa.txt --> download files and save it as aaa.txt
+> ls /etc/*release* --. list out all the release files
+> cat /etc/*release* -- display the content
+Package: -- this will query the software, install all the dependencies and packages which required to run the project)
+
+> rpm(redhat package manager) -i telnet.rpm -- install package
+> rpm -e telnet -- remove package
+> rpm -q telnet -- query package
+
