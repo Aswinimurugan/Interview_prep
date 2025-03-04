@@ -57,4 +57,24 @@ Package: -- this will query the software, install all the dependencies and packa
 > rpm(redhat package manager) -i telnet.rpm -- install package
 > rpm -e telnet -- remove package
 > rpm -q telnet -- query package
+>yum -- high level package manager that uses RPM underneath.it will search all the repositries, install all the dependecies and requiread software
 
+Services:
+Services in linux will help you configure software to run in the background
+>service httpd start or systemctl start httpd --> start the service
+>systemctl stop httpd
+>systemctl enable httpd --> enable service to start at startup
+>systemctl disable httpd
+>systemctl status httpd --> to know the status of service
+
+Networking:
+
+switch --> used to connect the two devices by using network
+router --> used to connect two different networks, communicate each other
+Gateway --> acting as a door for network, it will helps to find the correct router to senf the network packets
+> ip link --> to list and modify interfaces on the host IP
+> ip addr --> to see the ip adress assigned to interface
+> ip addr add --> used to set ip address to the interface
+DNS --> used to keep name for IP address to easy access
+DNS server --> will help to manage the host details of all servers.
+ --> every server should have etc/resolve.config file to strore server details in DNS server
