@@ -71,6 +71,7 @@ Networking:
 
 switch --> used to connect the two devices by using network
 router --> used to connect two different networks, communicate each other
+> ip route add 192.128.5.0 via 192.128.6.10 --> to create a gateway to reach one server 
 Gateway --> acting as a door for network, it will helps to find the correct router to senf the network packets
 > ip link --> to list and modify interfaces on the host IP
 > ip addr --> to see the ip adress assigned to interface
@@ -78,3 +79,21 @@ Gateway --> acting as a door for network, it will helps to find the correct rout
 DNS --> used to keep name for IP address to easy access
 DNS server --> will help to manage the host details of all servers.
  --> every server should have etc/resolve.config file to strore server details in DNS server
+nslookup -> to query a hostname from the DNS server
+> nslookup www.google.com
+dig --> useful tool to test DNS name resolution
+
+Basics of Application:
+
+Types of Programming language
+Compiled --> code -> compiled (convert into machine language) -> execute
+Interpreted --> code -> executed
+Application uses packages to execute dependecies
+Java: Compiled language
+Java converts source code into bytecode by using Javac command
+mvn command;
+compile - mvn compile
+*******
+Java script - allowed us to build the websites that are intelligent, interactive campare with html, css.
+Node Js is a server side javascript environment that can be used to develop application such as web app using java script. important feature is to ability to handle large number of concurence connection by implementing non blocking io model.
+
