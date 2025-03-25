@@ -1,3 +1,74 @@
+Git:
+--> Content tracker
+--> Distributed version Control system 
+git init --> initiliaze the repository
+git add . --> moving files from working area to Staging area (files are ready to commit in local repository)
+git restore <filename> -- will revert the changes to previous change from current change
+Best practice --> Keep your commit atomic and name your commit with meaningful message what exactly it does. Atomic means we shouldnt add multiple changes in one commit, we should create a commit for each changes (git add story1.txt)
+>git restor --staged <filename> --> it will remove the file from staging area
+>git rm --cached <filename> --> if you want remove the files(personal notes) from staging during file tracking
+> echo "file.name" > .gitignore --> it will skip the file from tracking
+Git branches:
+>git branche --> shows all the branch
+> git branch <branchname> --> create new branch
+> git checkout <branchname> --> switch to other branch 
+> git checkout -n <bn> --> create new branch and switch
+> git branch -d < bn> --> delete the branch 
+Merge
+Fastforward Merge --> the current branch has no extra commits to the branch that we are merging --> it will not create a commit while merging
+No fastforward merge --> it happens when we have more commits on current branch to merge with other merge, --> it will create a new commit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 name: Maven CI-CD
 
 on:
