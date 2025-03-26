@@ -17,6 +17,10 @@ Git branches:
 Merge
 Fastforward Merge --> the current branch has no extra commits to the branch that we are merging --> it will not create a commit while merging
 No fastforward merge --> it happens when we have more commits on current branch to merge with other merge, --> it will create a new commit
+Git Remote repository:
+>git remote add origin <url> --> to alias a remote repository and we can use this command to make connection between local and remote repository
+> git fetch origin master --> pull the changes from remote repository master branch
+> git fork <url> --> it will create the copy of repository and do a changes, than raise a pull request to main repository
 
 
 
