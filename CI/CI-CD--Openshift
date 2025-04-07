@@ -1,0 +1,18 @@
+
+https://www.codelikethewind.org/2022/02/23/how-to-setup-a-jenkins-pipeline-on-openshift/ -- jenkins with openshift
+Architecture:
+
+Jenkins Build --> Jenkins Test --> push it to artifacts(Nexus,Jfrog) --> build docker image in openshift --> do integrate testing --> promote image deploy to stage
+
+OpenShift Pipelines Benefits
+OpenShift Pipelines allows teams to build, test and deploy their applications using cloud-native pipelines and take control of their application lifecycle.
+
+Kubernetes style pipelines: Create pipelines using standard Kubernetes CRDs that are portable across Kubernetes distributions.
+
+Runs serverless: Create and run pipelines, period. No CI/CD server to manage and maintain.
+
+Deploy to multiple platforms: Your pipelines run on Kubernetes, but you can deploy to many Kubernetes, VMs and serverless platforms from the pipeline.
+
+Build images with Kubernetes tools: You can use the build tool of your choice for building images. Source-to-Image (S2I), Buildah and Dockerfiles, Jib, Kaniko and more.
+
+Developer tools: Command-line tool to interact with the pipelines in addition to integrations with OpenShift developer console and IDE plugins.
