@@ -16,3 +16,15 @@ Deploy to multiple platforms: Your pipelines run on Kubernetes, but you can depl
 Build images with Kubernetes tools: You can use the build tool of your choice for building images. Source-to-Image (S2I), Buildah and Dockerfiles, Jib, Kaniko and more.
 
 Developer tools: Command-line tool to interact with the pipelines in addition to integrations with OpenShift developer console and IDE plugins.
+
+What is Helm?
+Widely regarded as the package manager for Kubernetes, Helm is an open source project that introduced the concept of package management to the Kubernetes ecosystem. It provides a packaging format called "charts" that bundles all the necessary Kubernetes resources and configurations required to run an application.
+
+Why Should You Use Helm?
+With an understanding of what Helm is, here are a couple of reasons why you should consider using Helm:
+
+Simplifies Application Deployment: With Helm, you can deploy complex applications to Kubernetes clusters with a single command. It abstracts away the complexities of managing multiple Kubernetes resources.
+Reusability and Modularity: Helm charts can be shared and reused, allowing you to build complex applications from modular components.
+Enables Repeatable Deployments: Helm charts define the desired state of an application, ensuring that deployments are consistent and repeatable. This is particularly useful in scenarios where you need to deploy the same application across different environments (e.g., development, staging, production).
+Supports Version Management: Helm tracks and manages application versions, making it easy to roll back to a previous version if necessary. This is crucial for maintaining application stability and facilitating rollbacks in case of issues.
+Provides Dependency Management: Helm charts can depend on other charts, allowing you to build and manage complex applications that rely on multiple interdependent components. This helps streamline the deployment process and ensures that all required dependencies are installed and configured correctly.
