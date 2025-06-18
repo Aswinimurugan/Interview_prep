@@ -1,3 +1,6 @@
+
+Azure App Service --> Deployment Slot --> used to maintain the no downtime for the applications on app service by using deployment staging and deployment production 
+
 Developer --> Develop a code for your application in your personal system, text format of code will not help us to run it as application by end user
    |
 Build --> convert the code into executable format (Maven, gradle,...)
