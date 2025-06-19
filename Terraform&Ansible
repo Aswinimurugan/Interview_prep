@@ -166,6 +166,7 @@ vars:
   package_name: mariadb
 vars_files:
   -external_var.yml
+force_handlers: true
 tasks:
   - name: install httpd service
     apt:
@@ -186,13 +187,32 @@ tasks:
       state= present
     tags:
       Pack_install
+    notify:
+      - restart_apache
   - name: generate the template and paste it in target node
     template:
        src= index.j2 --> jija2 will help to work on templates in ansible
        dest= /var/html/index.html
     tags:
       temp_module
+    notify:
+      - restart_apache
+-Handlers
+    name: restart_apache
+    service:
+    name= httpd
+    state= present
+
     
 ...
 
 > ansible-playbook -a <filename> --tags "temp_module, pack_install" --> tag used to execute specific task in playbook
+
+Handlers: run the task when notify action is triggered
+
+
+Roles: used to organize the files and we can share it n number of users by sharing it in the ansible galaxy community
+>ansible-galaxy init httpd-role
+
+Vault --> used to encrypt the confedential information like passwords
+>ansible-vault encrypt invemtry.txt
