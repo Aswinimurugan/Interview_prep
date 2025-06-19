@@ -89,15 +89,110 @@ Ansible Architecture
 Ansible Workflow
 
 Ansible works by connecting to your nodes and pushing out a small program called Ansible modules to them. Then Ansible executed these modules and removed them after finished. The library of modules can reside on any machine, and there are no daemons, servers, or databases required.
+ansible all -m yum -a "name=httpd state=present" -> install httpd on all servers
+ansible-doc -l --> list all the modules
+ansible-doc -s service --> give the details of specific module
+example:
 
+Ansible Playbook
+
+Copy the code
+---
+- name: Start service and send email notification
+  hosts: all
+  become: yes
+  tasks:
+    - name: Start the service
+      service:
+        name: your_service_name
+        state: started
+      register: service_status
+
+    - name: Send email notification about service status
+      mail:
+        host: localhost
+        port: 25
+        subject: "Service Status Notification"
+        to: recipient@example.com
+        from: sender@example.com
+        body: >
+          {% if service_status.changed %}
+          The service 'your_service_name' was successfully started.
+          {% else %}
+          The service 'your_service_name' was already running or failed to start.
+          {% endif %}
+      when: service_status is defined
+Explanation:
+Start the Service:
+
+The service module is used to start the specified service (your_service_name).
+The result is registered in service_status.
+Send Email Notification:
+
+The mail module sends an email with the service status.
+The email body dynamically adjusts based on whether the service was started successfully or was already running.
+Notes:
+Replace your_service_name with the actual name of the service you want to manage.
+Update recipient@example.com and sender@example.com with valid email addresses.
+Ensure the target machine has a working mail server (e.g., Postfix, Sendmail) or configure the mail module to use an external SMTP server.
 
 
  
 
 Playbook Structure
+Playbook starts with --- and ends with ...
+ansible-playbook <yaml file name>
+ansible-playbook <file name> --syntax-check --> validate the syntax without executing
+ansible-playbook <filename> --list-host --> list the host name
+ansible-playbook <filename> --step --> it will ask permission to execute each and every step
+
 Each playbook is a collection of one or more plays. Playbooks are structured by using Plays. There can be more than one play inside a playbook.
  
 The function of the play is to map a set of instructions which is defined against a particular host.
 
 Ansible playbook for start/state/status of servers - https://devcodef1.com/news/1429420/ansible-playbook-for-service-management
 
+Ansible Fact:
+--> used to check the conditions of hosts
+ansible all -m setup --> give the details of hosts like hostname, memory,..)
+Ansible variables:
+ansible-playbook <filename> --extra-vars="version=...,""
+Ansible conditional--> it will check the certain condition before executing the palys on the playbook.
+
+---
+hosts: all
+become: true
+vars:
+  package_name: mariadb
+vars_files:
+  -external_var.yml
+tasks:
+  - name: install httpd service
+    apt:
+      name= httpd
+      state= present
+    when: ansible_os_family == "ubuntu" and ansible_OS_version= "1.6.8"
+  - name: create user
+    user: name= {{item}} state=present
+    with_items:
+     - aaa
+     - bbb
+     - ccc
+    tags:
+      user_creation
+  - name: install mariadb package
+    yum:
+      name= {{ package_name }}
+      state= present
+    tags:
+      Pack_install
+  - name: generate the template and paste it in target node
+    template:
+       src= index.j2 --> jija2 will help to work on templates in ansible
+       dest= /var/html/index.html
+    tags:
+      temp_module
+    
+...
+
+> ansible-playbook -a <filename> --tags "temp_module, pack_install" --> tag used to execute specific task in playbook
